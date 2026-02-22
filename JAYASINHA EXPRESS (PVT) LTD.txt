@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAYSINHA EXPRESS | ජයසිංහ එක්ස්ප්‍රස් | ஜயசிங்க எக்ஸ்பிரஸ்</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --light-blue: #3b82f6;
+            --accent-green: #10b981;
+            --dark-green: #059669;
+            --white: #ffffff;
+            --light-gray: #f3f4f6;
+            --text-dark: #1f2937;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "🚚";
+            font-size: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem;
+            border-radius: 20px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-green);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 50%, var(--accent-green) 100%);
+            color: var(--white);
+            padding: 4rem 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-gif {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-green);
+            color: var(--white);
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+            background: var(--white);
+            color: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 4rem 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-green);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Products Section */
+        #products {
+            background: var(--light-gray);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            border-color: var(--light-blue);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .product-name-ta, .product-name-si {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+            margin-bottom: 0.3rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: var(--accent-green);
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .add-to-cart:hover {
+            background: var(--accent-green);
+            transform: scale(1.02);
+        }
+
+        .add-to-cart:active {
+            transform: scale(0.98);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-left: 4px solid var(--accent-green);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .lang-label {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--light-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .submit-btn {
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--dark-green);
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .info-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: white;
+            padding: 3rem 20px 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-green);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-green);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Language Display Control */
+        .lang-en, .lang-si, .lang-ta {
+            display: none;
+        }
+
+        .lang-en.active, .lang-si.active, .lang-ta.active {
+            display: block;
+        }
+
+        span.lang-en.active, span.lang-si.active, span.lang-ta.active {
+            display: inline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                justify-content: center;
+            }
+
+            .hero {
+                margin-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-green);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 2000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .toast.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">JAYSINHA EXPRESS</div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-home">Home</a></li>
+                    <li><a href="#products" class="nav-products">Products</a></li>
+                    <li><a href="#about" class="nav-about">About</a></li>
+                    <li><a href="#contact" class="nav-contact">Contact</a></li>
+                    <li class="cart-icon" onclick="showCart()">
+                        🛒 <span class="cart-count" id="cartCount">0</span>
+                    </li>
+                    <li class="lang-switch">
+                        <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                        <button class="lang-btn" onclick="switchLanguage('si')">සිංහල</button>
+                        <button class="lang-btn" onclick="switchLanguage('ta')">தமிழ்</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="https://kimi-web-img.moonshot.cn/img/discovertemplate.com/c47be9f1366ef788f693ff3f7d35dc97f014908a.gif" alt="Shopping Animation" class="hero-gif">
+            
+            <div class="lang-en active">
+                <h1>Welcome to JAYSINHA EXPRESS</h1>
+                <p class="hero-text">Your One-Stop Online Shopping Destination</p>
+                <p class="hero-text">Fast Delivery | Quality Products | Best Prices</p>
+            </div>
+            
+            <div class="lang-si">
+                <h1>ජයසිංහ එක්ස්ප්‍රස් වෙත සාදරයෙන් පිළිගනිමු</h1>
+                <p class="hero-text">ඔබගේ සම්පූර්ණ ඔන්ලයින් සාප්පු සංකීර්ණය</p>
+                <p class="hero-text">වේගවත් බෙදාහැරීම | ගුණාත්මක නිෂ්පාදන | හොඳම මිල ගණන්</p>
+            </div>
+            
+            <div class="lang-ta">
+                <h1>ஜயசிங்க எக்ஸ்பிரஸுக்கு வரவேற்கிறோம்</h1>
+                <p class="hero-text">உங்கள் ஒரு நிறுத்த ஆன்லைன் ஷாப்பிங் இலக்கு</p>
+                <p class="hero-text">வேகமான விநியோகம் | தரமான பொருட்கள் | சிறந்த விலைகள்</p>
+            </div>
+            
+            <a href="#products" class="cta-button">
+                <span class="lang-en active">Shop Now</span>
+                <span class="lang-si">දැන් මිලදී ගන්න</span>
+                <span class="lang-ta">இப்போது வாங்குங்கள்</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2 class="section-title">
+            <span class="lang-en active">Our Products</span>
+            <span class="lang-si">අපගේ නිෂ්පාදන</span>
+            <span class="lang-ta">எங்கள் பொருட்கள்</span>
+        </h2>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <div class="product-name lang-en active">Smart Phone Pro Max</div>
+                    <div class="product-name-si lang-si">ස්මාර්ට් ජංගම දුරකථනය</div>
+                    <div class="product-name-ta lang-ta">ஸ்மார்ட் போன் ப்ரோ மேக்ஸ்</div>
+                    <div class="product-price">Rs. 145,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Smart Phone')">
+                        <span class="lang-en active">Add to Cart</span>
+                        <span class="lang-si">කරට්ටුවට එකතු කරන්න</span>
+                        <span class="lang-ta">வண்டியில் சேர்க்க</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">💻</div>
+                <div class="product-info">
+                    <div class="product-name lang-en active">Ultra Slim Laptop</div>
+                    <div class="product-name-si lang-si">අල්ට්‍රා ස්ලිම් ලැප්ටොප්</div>
+                    <div class="product-name-ta lang-ta">அல்ட்ரா ஸ்லிம் மடிக்கணினி</div>
+                    <div class="product-price">Rs. 185,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Laptop')">
+                        <span class="lang-en active">Add to Cart</span>
+                        <span class="lang-si">කරට්ටුවට එකතු කරන්න</span>
+                        <span class="lang-ta">வண்டியில் சேர்க்க</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">🎧</div>
+                <div class="product-info">
+                    <div class="product-name lang-en active">Wireless Headphones</div>
+                    <div class="product-name-si lang-si">වයර්ලස් හෙඩ්ෆෝන්</div>
+                    <div class="product-name-ta lang-ta">வயர்லெஸ் ஹெட்ஃபோன்கள்</div>
+                    <div class="product-price">Rs. 12,500</div>
+                    <button class="add-to-cart" onclick="addToCart('Headphones')">
+                        <span class="lang-en active">Add to Cart</span>
+                        <span class="lang-si">කරට්ටුවට එකතු කරන්න</span>
+                        <span class="lang-ta">வண்டியில் சேர்க்க</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">⌚</div>
+                <div class="product-info">
+                    <div class="product-name lang-en active">Smart Watch Series 5</div>
+                    <div class="product-name-si lang-si">ස්මාර්ට් වොච් සීරීස් 5</div>
+                    <div class="product-name-ta lang-ta">ஸ்மார்ட் வாட்ச் சீரிஸ் 5</div>
+                    <div class="product-price">Rs. 35,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Smart Watch')">
+                        <span class="lang-en active">Add to Cart</span>
+                        <span class="lang-si">කරට්ටුවට එකතු කරන්න</span>
+                        <span class="lang-ta">வண்டியில் சேர்க்க</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">📷</div>
+                <div class="product-info">
+                    <div class="product-name lang-en active">Digital Camera 4K</div>
+                    <div class="product-name-si lang-si">ඩිජිටල් කැමරාව 4K</div>
+                    <div class="product-name-ta lang-ta">டிஜிட்டல் கேமரா 4K</div>
+                    <div class="product-price">Rs. 95,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Camera')">
+                        <span class="lang-en active">Add to Cart</span>
+                        <span class="lang-si">කරට්ටුවට එකතු කරන්න</span>
+                        <span class="lang-ta">வண்டியில் சேர்க்க</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">🏠</div>
+                <div class="product-info">
+                    <div class="product-name lang-en active">Smart Home Kit</div>
+                    <div class="product-name-si lang-si">ස්මාර්ට් හෝම් කිට්</div>
+                    <div class="product-name-ta lang-ta">ஸ்மார்ட் ஹோம் கிட்</div>
+                    <div class="product-price">Rs. 45,000</div>
+                    <button class="add-to-cart" onclick="addToCart('Smart Home Kit')">
+                        <span class="lang-en active">Add to Cart</span>
+                        <span class="lang-si">කරට්ටුවට එකතු කරන්න</span>
+                        <span class="lang-ta">வண்டியில் சேர்க்க</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">
+            <span class="lang-en active">About Us</span>
+            <span class="lang-si">අපි ගැන</span>
+            <span class="lang-ta">எங்களை பற்றி</span>
+        </h2>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <div class="lang-en active">
+                    <span class="lang-label">English</span>
+                    <p><strong>Welcome to JAYSINHA EXPRESS!</strong> We are Sri Lanka's premier online marketplace dedicated to bringing you the latest electronics, gadgets, and lifestyle products at unbeatable prices. Founded with a vision to revolutionize online shopping in Sri Lanka, we prioritize customer satisfaction, fast delivery, and genuine products.</p>
+                    
+                    <p><strong>Our Mission:</strong> To provide a seamless shopping experience with quality products, secure payments, and island-wide delivery within 24-48 hours.</p>
+                    
+                    <p><strong>Our Vision:</strong> To become the most trusted e-commerce platform in Sri Lanka, empowering local businesses while serving customers with excellence.</p>
+                </div>
+                
+                <div class="lang-si">
+                    <span class="lang-label">සිංහල</span>
+                    <p><strong>ජයසිංහ එක්ස්ප්‍රස් වෙත සාදරයෙන් පිළිගනිමු!</strong> අපි ශ්‍රී ලංකාවේ ප්‍රමුඛතම ඔන්ලයින් වෙළඳපොළ වෙමු, ඔබට නොපරදවා ගත හැකි මිලගණන්වල නවතම ඉලෙක්ට්‍රොනික උපකරණ, ගැජට් සහ ජීවන රටා නිෂ්පාදන ලබා දීමට කැපවී සිටිමු. ශ්‍රී ලංකාවේ ඔන්ලයින් සාප්පු සවාරි ක්‍රමය විප්ලවීය කිරීමේ දැක්මකින් ආරම්භ කරන ලද අපි, පාරිභෝගික සතුට, වේගවත් බෙදාහැරීම සහ අවංක නිෂ්පාදන වලට ප්‍රමුඛත්වය දෙමු.</p>
+                    
+                    <p><strong>අපගේ මෙහෙවර:</strong> ගුණාත්මක නිෂ්පාදන, ආරක්ෂිත ගෙවීම් සහ පැය 24-48 තුළ දූපත් පුරා බෙදාහැරීම සමඟින් නොකඩවා පවතින සාප්පු සවාරි අත්දැකීමක් ලබා දීම.</p>
+                    
+                    <p><strong>අපගේ දැක්ම:</strong> ශ්‍රී ලංකාවේ වඩාත්ම විශ්වසනීය ඊ-වාණිජ්‍ය වේදිකාව බවට පත්වීම, දේශීය ව්‍යාපාර බලගැන්වීම සහ විශිෂ්ටත්වයෙන් පාරිභෝගිකයින්ට සේවය කිරීම.</p>
+                </div>
+                
+                <div class="lang-ta">
+                    <span class="lang-label">தமிழ்</span>
+                    <p><strong>ஜயசிங்க எக்ஸ்பிரஸுக்கு வரவேற்கிறோம்!</strong> நாங்கள் இலங்கையின் முன்னணி ஆன்லைன் சந்தை, உங்களுக்கு அதிநவீன மின்னணுவியல், கேஜெட்டுகள் மற்றும் வாழ்க்கை முறை பொருட்களை எட்ட முடியாத விலைகளில் வழங்குவதில் அர்ப்பணிப்புடன் உள்ளோம். இலங்கையில் ஆன்லைன் ஷாப்பிங்கை புரட்சிகரமாக்கும் பார்வையுடன் தொடங்கப்பட்ட எங்கள், வாடிக்கையாளர் திருப்தி, வேகமான விநியோகம் மற்றும் நம்பகமான பொருட்களுக்கு முன்னுரிமை அளிக்கிறோம்.</p>
+                    
+                    <p><strong>எங்கள் நோக்கம்:</strong> தரமான பொருட்கள், பாதுகாப்பான கட்டணங்கள் மற்றும் 24-48 மணி நேரத்திற்குள் தீவு முழுவதும் விநியோகத்துடன் தடையற்ற ஷாப்பிங் அனுபவத்தை வழங்குதல்.</p>
+                    
+                    <p><strong>எங்கள் பார்வை:</strong> இலங்கையில் மிகவும் நம்பகமான இ-காமர்ஸ் தளமாக மாறுதல், உள்ளூர் வணிகங்களை மேம்படுத்துதல் மற்றும் சிறப்பாக வாடிக்கையாளர்களுக்கு சேவை செய்தல்.</p>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <img src="https://kimi-web-img.moonshot.cn/img/img.freepik.com/00ee0c4044e276f68fa49f3051ef24c860ec9774.jpg" alt="Delivery Service">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">
+            <span class="lang-en active">Contact Us</span>
+            <span class="lang-si">අප හා සම්බන්ධ වන්න</span>
+            <span class="lang-ta">எங்களை தொடர்பு கொள்ளுங்கள்</span>
+        </h2>
+        
+        <div class="contact-container">
+            <div class="contact-form">
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>
+                            <span class="lang-en active">Name</span>
+                            <span class="lang-si">නම</span>
+                            <span class="lang-ta">பெயர்</span>
+                        </label>
+                        <input type="text" required placeholder="Enter your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <span class="lang-en active">Message</span>
+                            <span class="lang-si">පණිවිඩය</span>
+                            <span class="lang-ta">செய்தி</span>
+                        </label>
+                        <textarea rows="5" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span class="lang-en active">Send Message</span>
+                        <span class="lang-si">පණිවිඩය යවන්න</span>
+                        <span class="lang-ta">செய்தி அனுப்பு</span>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>📍 Address</h3>
+                    <p>123 Main Street, Colombo 03,<br>Sri Lanka</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>📞 Phone</h3>
+                    <p>+94 11 234 5678<br>+94 77 123 4567</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>✉️ Email</h3>
+                    <p>info@jaysinhaexpress.com<br>support@jaysinhaexpress.com</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🕒 Business Hours</h3>
+                    <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JAYSINHA EXPRESS</h3>
+                <p>Your trusted online shopping partner in Sri Lanka. Quality products, fast delivery, and excellent customer service.</p>
+                <div class="social-links">
+                    <a href="#">📘</a>
+                    <a href="#">🐦</a>
+                    <a href="#">📸</a>
+                    <a href="#">💬</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#products">Products</a></p>
+                <p><a href="#about">About Us</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <p><a href="#">FAQ</a></p>
+                <p><a href="#">Shipping Info</a></p>
+                <p><a href="#">Returns Policy</a></p>
+                <p><a href="#">Track Order</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>📧 info@jaysinhaexpress.com</p>
+                <p>📞 +94 11 234 5678</p>
+                <p>📍 Colombo, Sri Lanka</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 JAYSINHA EXPRESS. All rights reserved. | Designed with 💙💚🤍</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                <span class="lang-en active">Thank you for shopping with us!</span>
+                <span class="lang-si">අප සමඟ සාප්පු සවාරි කිරීමට ස්තුතියි!</span>
+                <span class="lang-ta">எங்களுடன் ஷாப்பிங் செய்ததற்கு நன்றி!</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Item added to cart!</div>
+
+    <script>
+        let cartCount = 0;
+        let currentLang = 'en';
+
+        // Language Switching Function
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Hide all language content
+            document.querySelectorAll('.lang-en, .lang-si, .lang-ta').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show selected language
+            document.querySelectorAll('.lang-' + lang).forEach(el => {
+                el.classList.add('active');
+            });
+            
+            // Update navigation text based on language
+            updateNavigation(lang);
+        }
+
+        function updateNavigation(lang) {
+            const navTexts = {
+                en: { home: 'Home', products: 'Products', about: 'About', contact: 'Contact' },
+                si: { home: 'මුල් පිටුව', products: 'නිෂ්පාදන', about: 'අපි ගැන', contact: 'සම්බන්ධතා' },
+                ta: { home: 'முகப்பு', products: 'பொருட்கள்', about: 'எங்களை பற்றி', contact: 'தொடர்பு' }
+            };
+            
+            document.querySelector('.nav-home').textContent = navTexts[lang].home;
+            document.querySelector('.nav-products').textContent = navTexts[lang].products;
+            document.querySelector('.nav-about').textContent = navTexts[lang].about;
+            document.querySelector('.nav-contact').textContent = navTexts[lang].contact;
+        }
+
+        // Cart Functionality
+        function addToCart(productName) {
+            cartCount++;
+            document.getElementById('cartCount').textContent = cartCount;
+            
+            // Show toast notification
+            const toast = document.getElementById('toast');
+            const messages = {
+                en: productName + ' added to cart!',
+                si: productName + ' කරට්ටුවට එකතු කරන ලදී!',
+                ta: productName + ' வண்டியில் சேர்க்கப்பட்டது!'
+            };
+            
+            toast.textContent = messages[currentLang] || messages.en;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function showCart() {
+            const messages = {
+                en: 'Cart (' + cartCount + ' items)\n\nThis is a demo cart. In a real implementation, this would show your selected items.',
+                si: 'කරට්ටුව (' + cartCount + ' අයිතම)\n\nමෙය ඩෙමෝ කරට්ටුවකි. සැබෑ ක්‍රියාත්මක කිරීමකදී, මෙය ඔබේ තෝරාගත් අයිතම පෙන්වනු ඇත.',
+                ta: 'வண்டி (' + cartCount + ' பொருட்கள்)\n\nஇது ஒரு டெமோ வண்டி. உண்மையான செயல்பாட்டில், இது உங்கள் தேர்ந்தெடுக்கப்பட்ட பொருட்களைக் காட்டும்.'
+            };
+            alert(messages[currentLang] || messages.en);
+        }
+
+        // Form Submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const messages = {
+                en: 'Thank you for your message! We will get back to you soon.',
+                si: 'ඔබගේ පණිවිඩයට ස්තුතියි! අපි ඉක්මනින් ඔබට පිළිතුරු දෙන්නෙමු.',
+                ta: 'உங்கள் செய்திக்கு நன்றி! நாங்கள் விரைவில் உங்களுக்கு பதில் அளிப்போம்.'
+            };
+            alert(messages[currentLang] || messages.en);
+            e.target.reset();
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 64, 175, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
